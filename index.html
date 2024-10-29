@@ -7,25 +7,76 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Shoe Store</div> <!-- Thêm logo ở đây -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Shoe Store</h1>
     <div class="product-container" id="productContainer">
         <!-- Products will be loaded here -->
     </div>
 
+    <footer>
+        <p>&copy; 2024 Shoe Store. All rights reserved.</p>
+        <p>Contact us: info@shoestore.com</p>
+    </footer>
+
     <script>
-        // Fetch data from server (simulated here for demo purposes)
-        async function loadProducts() {
-            const response = await fetch('get_products.php');
-            const products = await response.json();
-            
+        // Danh sách sản phẩm
+        const products = [
+            {
+                name: 'Nike Air Max',
+                price: 120.00,
+                image_url: 'images/nike1.jpg' // Đảm bảo hình ảnh này tồn tại trong thư mục images
+            },
+            {
+                name: 'Adidas Ultraboost',
+                price: 140.00,
+                image_url: 'images/nike2.jpg' // Đảm bảo hình ảnh này tồn tại trong thư mục images
+            },
+            {
+                name: 'Puma Classic',
+                price: 90.00,
+                image_url: 'images/nike3.jpg' // Đảm bảo hình ảnh này tồn tại trong thư mục images
+            },
+            {
+                name: 'Reebok Classic',
+                price: 100.00,
+                image_url: 'images/Reebok Classic.jpg' 
+            },
+            {
+                name: 'New Balance 990',
+                price: 150.00,
+                image_url: 'images/NewBalance 990.jpg' 
+            },
+
+            {
+                name: 'New Balance 530',
+                price: 120.00,
+                image_url: 'images/530.webp' 
+            }
+        ];
+
+        // Hàm hiển thị sản phẩm
+        function loadProducts() {
             const productContainer = document.getElementById('productContainer');
+            productContainer.innerHTML = ''; // Xóa nội dung cũ nếu có
+            
             products.forEach(product => {
                 const productDiv = document.createElement('div');
                 productDiv.className = 'product';
                 productDiv.innerHTML = `
                     <img src="${product.image_url}" alt="${product.name}">
                     <h2>${product.name}</h2>
-                    <p>Price: $${product.price}</p>
+                    <p>Price: $${product.price.toFixed(2)}</p>
                 `;
                 productContainer.appendChild(productDiv);
             });

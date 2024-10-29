@@ -1,6 +1,6 @@
 const mysql = require('mysql2/promise');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     const db = await mysql.createConnection({
         host: process.env.DB_HOST,     // Host của cơ sở dữ liệu từ xa
         user: process.env.DB_USER,     // Tên người dùng

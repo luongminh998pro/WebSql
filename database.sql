@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS products (
 
 -- Thêm sản phẩm mẫu
 INSERT INTO products (name, price, image_url) VALUES
-('Nike Air Max', 120.00, 'images/nike_air_max.jpg'),
+('Nike Air Max', 120.00, 'images/nike1.jpg'),
 ('Adidas Ultraboost', 140.00, 'images/adidas_ultraboost.jpg'),
 ('Puma Classic', 90.00, 'images/puma_classic.jpg');

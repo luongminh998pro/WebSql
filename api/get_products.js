@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+const mysql = require('sqlite/promise');
 
 module.exports = async function handler(req, res) {
     const db = await mysql.createConnection({
